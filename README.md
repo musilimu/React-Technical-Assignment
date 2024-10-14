@@ -1,6 +1,6 @@
 # React Technical Assignment
 
-# TO BE SUBMITTED BY 11:59 PM ON May 05, 2024
+# TO BE SUBMITTED BY 23:59, ON THE 20th OF OCTOBER 2024
 
 ## Description
 
