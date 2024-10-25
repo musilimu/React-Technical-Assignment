@@ -8,6 +8,13 @@ export interface ITodo {
     userId: number
 }
 
-export const getTodos = async ({limit, skip}: IFilters)=>{
-    return await ky.get<ITodo[]>(`https://dummyjson.com/todos?limit=${limit}&skip=${skip}`).json()
+interface ITodoResponse {
+    todos: ITodo[]
+    total: number
+    skip: number
+    limit: number
+}
+
+export const getTodos = async ({ limit, skip }: IFilters) => {
+    return await ky.get<ITodoResponse>(`https://dummyjson.com/todos?limit=${limit}&skip=${skip}`).json()
 }
