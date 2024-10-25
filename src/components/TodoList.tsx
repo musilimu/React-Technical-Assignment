@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query"
-import { getTodos } from "../api/todos"
+import { getTodos, ITodo } from "../api/todos"
 import { useTodoStore } from "../state"
 import TodoItem from "./TodoItem"
+import React from "react"
+import { TTaskState } from "./ui/Tabs"
 
-const TodoList = () => {
+const TodoList: React.FC<{ category: TTaskState }> = ({ category }) => {
     const filters = useTodoStore(state => state.filters)
 
     const { isPending, error, data } = useQuery({
@@ -11,12 +13,19 @@ const TodoList = () => {
         queryFn: () => getTodos(filters)
     })
 
-    if(isPending) return <p>Loading</p>
-    if(error) return <p>{error?.message}</p>
+    if (isPending) return <p>Loading</p>
+    if (error) return <p>{error?.message}</p>
+
+    const filtered: ITodo[] = category === 'All tasks' ?
+        data.todos :
+        // @ts-expect-error
+        Object.groupBy(data.todos, todo => {
+            return todo.completed ? "Completed" : 'Inprogress'
+        })[category]
 
     return (
         <div>
-            {data?.todos.map(todo => <TodoItem key={todo.id} {...todo}/>)}
+            {filtered?.map(todo => <TodoItem key={todo.id} {...todo} />)}
         </div>
     )
 }
