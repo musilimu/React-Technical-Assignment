@@ -21,6 +21,7 @@ export const api = ky.create({
     prefixUrl: 'https://dummyjson.com',
 });
 
-export const getTodos = async ({ limit, skip }: IFilters) => {
-    return await api.get<ITodoResponse>(`todos`, { searchParams: { limit, skip } }).json();
+export const getTodos = async ({ limit, skip, user }: IFilters) => {
+
+    return await api.get<ITodoResponse>(`todos${user ? `/user/${user}` : ''}`, { searchParams: { limit, skip } }).json();
 }

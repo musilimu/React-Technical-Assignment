@@ -3,7 +3,8 @@ import { create } from 'zustand'
 export interface IFilters {
     limit: number
     skip: number
-    select?: string[]
+    select?: string
+    user?: number
 }
 interface todoState {
     filters: IFilters
@@ -11,7 +12,8 @@ interface todoState {
 }
 
 interface userState {
-    filters: IFilters
+    filters?: IFilters & {
+    }
     setFilters: (filters: IFilters) => void
 }
 
@@ -24,7 +26,7 @@ export const useTodoStore = create<todoState>()((set) => ({
 }))
 
 export const useUserStore = create<userState>()((set) => ({
-    filters: { limit: 10, skip: 0, select: ['image','username'] },
+    filters: undefined,
     setFilters: (filters) => {
         if (filters.limit < 0 || filters.skip < 0) return
         return set({ filters })

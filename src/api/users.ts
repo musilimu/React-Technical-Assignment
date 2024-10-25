@@ -11,6 +11,6 @@ interface IUserResponse extends IResponse {
     users: IUser[]
 }
 
-export const getUsers = async ({ limit, skip, select }: IFilters) => {
-    return await api.get<IUserResponse>(`users`, { searchParams: { skip, limit, select: select?.join(',') || 'image,username' } }).json();
+export const getUsers = async (filters?: IFilters) => {
+    return await api.get<IUserResponse>(`users`, { searchParams: filters ? { skip: filters.skip, limit: filters.limit, select: filters.select || 'image,username' } : undefined }).json();
 }
