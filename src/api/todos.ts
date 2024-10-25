@@ -8,13 +8,19 @@ export interface ITodo {
     userId: number
 }
 
-interface ITodoResponse {
-    todos: ITodo[]
+export interface IResponse {
     total: number
     skip: number
     limit: number
 }
+interface ITodoResponse extends IResponse {
+    todos: ITodo[]
+}
+
+export const api = ky.create({
+    prefixUrl: 'https://dummyjson.com',
+});
 
 export const getTodos = async ({ limit, skip }: IFilters) => {
-    return await ky.get<ITodoResponse>(`https://dummyjson.com/todos?limit=${limit}&skip=${skip}`).json()
+    return await api.get<ITodoResponse>(`todos`, { searchParams: { limit, skip } }).json();
 }
