@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+[aria-selected="true"] span {
+    @apply scale-x-100;
+}

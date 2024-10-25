@@ -3,17 +3,23 @@ import Paginations from "./components/Paginations"
 import Users from "./components/Users"
 import Nav from "./components/ui/Nav"
 import TodoListTabs from "./components/ui/Tabs"
+import Sidebar from "./components/ui/Sidebar"
 
 const queryClient = new QueryClient()
 
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Nav />
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 mt-3">
-        <Users />
-        <TodoListTabs />
-        <Paginations />
+      <div className="flex">
+        <Sidebar />
+        <div className="flex-1 ml-16">
+          <Nav />
+          <div className="bg-gray-100 p-12">
+            <Users />
+            <TodoListTabs />
+            <Paginations />
+          </div>
+        </div>
       </div>
     </QueryClientProvider>
   )

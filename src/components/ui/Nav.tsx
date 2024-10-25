@@ -1,10 +1,10 @@
-import { Disclosure} from '@headlessui/react'
+import { Disclosure } from '@headlessui/react'
 import { MagnifyingGlassIcon, MoonIcon } from '@heroicons/react/24/outline'
 
 export default function Nav() {
     return (
         <Disclosure as="nav" className="bg-white">
-            <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+            <div className="px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                         <div className="flex flex-shrink-0 items-center">
@@ -21,7 +21,7 @@ export default function Nav() {
                                         type='text'
                                         className='p-2 rounded-sm border-none outline-none bg-gray-100'
                                     />
-                                    <button className='ml-[-2rem]'><MagnifyingGlassIcon width={24} height={24} aria-hidden="false"  className='text-gray-400'/></button>
+                                    <button className='ml-[-2rem]'><MagnifyingGlassIcon width={24} height={24} aria-hidden="false" className='text-gray-400' /></button>
                                 </form>
 
                             </div>
@@ -34,7 +34,7 @@ export default function Nav() {
                         >
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Togge theme</span>
-                            <MoonIcon width={24} height={24}/>
+                            <MoonIcon width={24} height={24} />
                         </button>
                     </div>
                 </div>
