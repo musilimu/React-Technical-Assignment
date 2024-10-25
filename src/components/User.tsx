@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { useTodoStore } from "../state";
 
 const User: React.FC<IUser> = ({ image, username, id }) => {
-    const [_,setSearchParams] = useSearchParams({ skip: '0' });
+    const [_, setSearchParams] = useSearchParams({ skip: '0' });
 
     const setFilters = useTodoStore(state => state.setFilters)
     const filters = useTodoStore(state => state.filters)
@@ -16,12 +16,9 @@ const User: React.FC<IUser> = ({ image, username, id }) => {
         })
         setSearchParams({ user: filters.user?.toString() || '' });
     };
-    
+
     return (
-        <div onClick={queryByUser} className="cursor-pointer">
-            <img src={image} width={40} height={40} alt={`${username}'s profile picture`} />
-            <p>{username}</p>
-        </div>
+        <img title={username} onClick={queryByUser} src={image} width={35} height={35} alt={`${username}'s profile picture`} className="inline-block h-12 w-12 rounded-full ring-2 ring-white bg-gray-100 cursor-pointer" />
     )
 }
 
