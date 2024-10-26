@@ -5,3 +5,7 @@
 [aria-selected="true"] span {
     @apply scale-x-100;
 }
+
+.sidebar [aria-selected="true"] span:not(.red-dot) {
+    @apply -scale-y-150;
+}
