@@ -4,8 +4,9 @@ import Users from "./components/Users"
 import Nav from "./components/ui/Nav"
 import TodoListTabs from "./components/ui/Tabs"
 import Sidebar from "./components/ui/Sidebar"
-import OverView from "./components/OverView"
-import TeamChat from "./components/TeamChat"
+// import OverView from "./components/OverView"
+// import TeamChat from "./components/TeamChat"
+import NewTask from "./components/NewTask"
 
 const queryClient = new QueryClient()
 
@@ -24,8 +25,9 @@ function App() {
             </div>
           </div>
           <div className="max-w-xl flex-1 p-5 shadow-md">
-            <OverView />
-            <TeamChat />
+            {/* <OverView /> */}
+            {/* <TeamChat /> */}
+            <NewTask />
           </div>
         </div>
       </div>
