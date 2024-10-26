@@ -8,11 +8,19 @@ import OverView from "./components/OverView"
 import TeamChat from "./components/TeamChat"
 import NewTask from "./components/NewTask"
 import { useSearchParams } from "react-router-dom"
+import UpdateTask from "./components/UpdateTask"
 
 const queryClient = new QueryClient()
 
-function App() {
+const Page = () => {
   const [searchParams, _setSearchParams] = useSearchParams()
+
+  if (searchParams.get('page') === 'new-task') return <NewTask />
+  if (searchParams.get('page') === 'update-task') return <UpdateTask/>
+  return <><OverView /><TeamChat /></>
+
+}
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="flex">
@@ -27,7 +35,7 @@ function App() {
             </div>
           </div>
           <div className="max-w-xl flex-1 p-5 shadow-md">
-            {searchParams.get('page') === 'new-task' ? <NewTask /> : <><OverView /><TeamChat /></>}
+            <Page />
           </div>
         </div>
       </div>
