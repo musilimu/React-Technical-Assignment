@@ -22,6 +22,10 @@ export const api = ky.create({
 });
 
 export const getTodos = async ({ limit, skip, user }: IFilters) => {
-
     return await api.get<ITodoResponse>(`todos${user ? `/user/${user}` : ''}`, { searchParams: { limit, skip } }).json();
+}
+export const createTodo = async (todo: Omit<ITodo, 'id'>) => {
+    return await api.post<ITodoResponse>('todos/add', {
+        json: todo
+    }).json();
 }

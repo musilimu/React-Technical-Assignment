@@ -1,11 +1,14 @@
 import { Tab, TabGroup, TabList, TabPanel, TabPanels } from '@headlessui/react'
 import TodoList from '../TodoList'
 import { PlusIcon, AdjustmentsHorizontalIcon  } from '@heroicons/react/24/outline'
+import { useSearchParams } from 'react-router-dom'
 
 export type TTaskState = 'All tasks' | 'Completed' | 'Inprogress'
 const categories: TTaskState[] = ['All tasks', 'Completed', 'Inprogress']
 
 const TodoListTabs = () => {
+  const [_searchParams, setSearchParams] = useSearchParams()
+
     return (
         <div className="flex w-full">
             <TabGroup className="w-full">
@@ -27,7 +30,7 @@ const TodoListTabs = () => {
                             <AdjustmentsHorizontalIcon width={16} height={16} className='text-gray-600' />
                             <span>Filter & Sort</span>
                         </button>
-                        <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200'>
+                        <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200' onClick={()=> setSearchParams({page:'new-task'})}>
                             <PlusIcon width={16} height={16} className='text-gray-600' />
                             <span>New Task</span>
                         </button>

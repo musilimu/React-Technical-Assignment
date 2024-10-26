@@ -29,14 +29,14 @@ const Sidebar = () => {
                 <TabGroup className="w-full">
                     <TabList className="flex flex-col gap-4 bg-white rounded-xl w-full relative">
                         <Tab
-                            key={'name'}
+                            key={'home'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
                             <SidebarControl icon={<HomeIcon width={24} height={24} />} />
                             <span className="absolute bottom-0 rounded-r-md -left-5 h-full bg-blue-600 transition-all duration-300 ease-in-out transform scale-y-0 w-1"></span>
                         </Tab>
                         <Tab
-                            key={'name'}
+                            key={'Messages'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
                             <SidebarControl icon={<>
@@ -52,14 +52,14 @@ const Sidebar = () => {
                             <span className="absolute bottom-0 rounded-r-md -left-5 h-full bg-blue-600 transition-all duration-300 ease-in-out transform scale-y-0 w-1"></span>
                         </Tab>
                         <Tab
-                            key={'name'}
+                            key={'FolderMinusIcon'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
                             <SidebarControl icon={<FolderMinusIcon width={24} height={24} />} />
                             <span className="absolute bottom-0 rounded-r-md -left-5 h-full bg-blue-600 transition-all duration-300 ease-in-out transform scale-y-0 w-1"></span>
                         </Tab>
                         <Tab
-                            key={'name'}
+                            key={'PresentationChartLineIcon'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
                             <SidebarControl icon={<PresentationChartLineIcon width={24} height={24} />} />
