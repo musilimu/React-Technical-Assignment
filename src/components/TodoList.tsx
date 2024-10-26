@@ -24,7 +24,7 @@ const TodoList: React.FC<{ category: TTaskState }> = ({ category }) => {
         })[category]
 
     return (
-        <div className="grid gap-3">
+        <div className="grid gap-3 items-start">
             {filtered?.map(todo => <TodoItem key={todo.id} {...todo} />)}
         </div>
     )
