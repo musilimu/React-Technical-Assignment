@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query"
 import { getUsers } from "../../api/users"
 import { useUserStore } from "../../state"
 import User from "../User"
-import { PlusIcon, UserIcon, Cog6ToothIcon, HomeIcon, EnvelopeIcon, FolderIcon, MapIcon } from "@heroicons/react/24/outline"
+import { PlusIcon, UserIcon, Cog6ToothIcon, HomeIcon, EnvelopeIcon, FolderMinusIcon, PresentationChartLineIcon } from "@heroicons/react/24/outline"
 import React, { ReactNode } from "react"
 import { Tab, TabGroup, TabList } from "@headlessui/react"
 
@@ -55,14 +55,14 @@ const Sidebar = () => {
                             key={'name'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
-                            <SidebarControl icon={<FolderIcon width={24} height={24} />} />
+                            <SidebarControl icon={<FolderMinusIcon width={24} height={24} />} />
                             <span className="absolute bottom-0 rounded-r-md -left-5 h-full bg-blue-600 transition-all duration-300 ease-in-out transform scale-y-0 w-1"></span>
                         </Tab>
                         <Tab
                             key={'name'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
                         >
-                            <SidebarControl icon={<MapIcon width={24} height={24} />} />
+                            <SidebarControl icon={<PresentationChartLineIcon width={24} height={24} />} />
                             <span className="absolute bottom-0 rounded-r-md -left-5 h-full bg-blue-600 transition-all duration-300 ease-in-out transform scale-y-0 w-1"></span>
                         </Tab>
                     </TabList>
