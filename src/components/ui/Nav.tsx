@@ -1,5 +1,5 @@
 import { Disclosure } from '@headlessui/react'
-import { MagnifyingGlassIcon, MoonIcon } from '@heroicons/react/24/outline'
+import { MagnifyingGlassIcon, MoonIcon, BellIcon } from '@heroicons/react/24/outline'
 
 export default function Nav() {
     return (
@@ -7,18 +7,12 @@ export default function Nav() {
             <div className="px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                        <div className="flex flex-shrink-0 items-center">
-                            <img
-                                alt="Your Company"
-                                src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                                className="h-8 w-auto"
-                            />
-                        </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 <form action="" className='flex'>
                                     <input
                                         type='text'
+                                        placeholder='Search'
                                         className='p-2 rounded-sm border-none outline-none bg-gray-100'
                                     />
                                     <button className='ml-[-2rem]'><MagnifyingGlassIcon width={24} height={24} aria-hidden="false" className='text-gray-400' /></button>
@@ -27,14 +21,22 @@ export default function Nav() {
                             </div>
                         </div>
                     </div>
-                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                    <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0 gap-2">
                         <button
                             type="button"
-                            className="relative rounded-full p-1 text-gray-400 "
+                            className="relative rounded-lg p-1 text-gray-400 bg-gray-200/50"
                         >
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Togge theme</span>
                             <MoonIcon width={24} height={24} />
+                        </button>
+                        <button
+                            type="button"
+                            className="relative rounded-lg p-1 text-gray-400 bg-gray-200/50"
+                        >
+                            <span className="absolute bg-red-600 w-2 h-2 rounded-full right-3/2 top-3/2" />
+                            <span className="sr-only">Notifications</span>
+                            <BellIcon width={24} height={24} />
                         </button>
                     </div>
                 </div>
