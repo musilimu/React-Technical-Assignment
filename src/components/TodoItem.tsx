@@ -30,9 +30,8 @@ const TodoItem: React.FC<ITodo> = ({ completed, todo, userId, id }) => {
 
     if (isPending) return <p>Loading</p>
     if (error) return <p>{error?.message}</p>
-
     return (
-        <div className="grid gap-2 bg-white p-4 rounded-lg max-w-md" ref={todoRef}>
+        <div className="grid mt-4 gap-2 bg-white p-4 rounded-lg max-w-md min-w-96" ref={todoRef}>
             {deleteTodoMutation.isSuccess && <Alert message="Task deleted successfuly" type="success" onClose={() => {
                 deleteTodoMutation.reset()
             }} />}

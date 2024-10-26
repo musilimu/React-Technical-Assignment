@@ -14,11 +14,6 @@ const TEAM_CHAT = [
         timestamp: "09:00 AM"
     },
     {
-        user: "Charlie",
-        message: "Nice! I just submitted my PR for the new dashboard layout. Can you review it, Alice?",
-        timestamp: "09:00 AM"
-    },
-    {
         user: "Alice",
         message: "Absolutely, I’ll take a look right after the stand-up. How’s the feedback been on your PRs, everyone?",
         timestamp: "09:00 AM"
@@ -46,7 +41,7 @@ const TeamChat = () => {
                     </div>
                 ))}
             </div>
-            <form className="flex flex-1 items-center my-4 fixed bottom-0 right-8 w-full max-w-lg">
+            <form className="flex flex-1 items-center my-4 bottom-0 right-8 w-full max-w-lg">
                 <input
                     type='text'
                     placeholder='Your message...'

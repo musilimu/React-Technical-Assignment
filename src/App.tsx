@@ -16,7 +16,7 @@ const Page = () => {
   const [searchParams, _setSearchParams] = useSearchParams()
 
   if (searchParams.get('page') === 'new-task') return <NewTask />
-  if (searchParams.get('page') === 'update-task') return <UpdateTask/>
+  if (searchParams.get('page') === 'update-task') return <UpdateTask />
   return <><OverView /><TeamChat /></>
 
 }
@@ -26,7 +26,7 @@ function App() {
       <div className="flex">
         <Sidebar />
         <div className="flex flex-1">
-          <div className="flex-1 ml-16">
+          <div className="flex-1 ml-16 w-64">
             <Nav />
             <div className="bg-gray-100 p-12">
               <Users />
@@ -34,7 +34,7 @@ function App() {
               <Paginations />
             </div>
           </div>
-          <div className="max-w-xl flex-1 p-5 shadow-md">
+          <div className="max-w-[35%] sticky flex-1 p-5 shadow-md bg-white right-0 top-0">
             <Page />
           </div>
         </div>

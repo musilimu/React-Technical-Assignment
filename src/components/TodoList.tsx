@@ -5,12 +5,12 @@ import TodoItem from "./TodoItem"
 import React from "react"
 import { TTaskState } from "./ui/Tabs"
 
-const TodoList: React.FC<{ category: TTaskState }> = ({ category }) => {
+const TodoList: React.FC<{ category: TTaskState, userId: number }> = ({ category, userId }) => {
     const filters = useTodoStore(state => state.filters)
 
     const { isPending, error, data } = useQuery({
-        queryKey: ['todos-list', filters],
-        queryFn: () => getTodos(filters)
+        queryKey: ['todos-list', filters, userId],
+        queryFn: () => getTodos({...filters, user: userId})
     })
 
     if (isPending) return <p>Loading</p>
@@ -24,7 +24,7 @@ const TodoList: React.FC<{ category: TTaskState }> = ({ category }) => {
         })[category]
 
     return (
-        <div className="grid gap-3 items-start">
+        <div>
             {filtered?.map(todo => <TodoItem key={todo.id} {...todo} />)}
         </div>
     )
