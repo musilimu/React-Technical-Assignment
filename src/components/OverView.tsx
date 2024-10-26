@@ -6,7 +6,7 @@ const OverView = () => {
     return (
         <div>
             <div className="flex justify-between mb-3">
-                <h2 className="font-bold">Add new todos</h2>
+                <h2 className="font-bold">Project overview</h2>
                 <Link to={'/'} className="text-gray-400">See All</Link>
             </div>
 
