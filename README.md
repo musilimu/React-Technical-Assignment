@@ -1,4 +1,5 @@
 # TODO App
+![Light theme](https://github.com/musilimu/React-Technical-Assignment/blob/main/public/light.png)
 
 ## 🗞️ About The Project
 This is a task manager app that allows users to create, manage, and delete tasks. The app features a clean and responsive design, supports dark theme, and includes internationalization for English and French. It utilizes a dummy API for all CRUD operations, ensuring a smooth user experience.
