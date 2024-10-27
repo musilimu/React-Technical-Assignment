@@ -25,18 +25,18 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <Suspense fallback="loading">
-        <div className="flex">
+        <div className="flex dark:text-gray-200  dark:bg-gray-800 min-h-[100vh]">
           <Sidebar />
           <div className="flex flex-1">
             <div className="flex-1 ml-16 w-64">
               <Nav />
-              <div className="bg-gray-100 p-12">
+              <div className="bg-gray-100 dark:bg-gray-800 p-12">
                 <Users />
                 <TodoListTabs />
                 <Paginations />
               </div>
             </div>
-            <div className="max-w-[35%] sticky flex-1 p-5 shadow-md bg-white right-0 top-0">
+            <div className="max-w-[35%] sticky flex-1 p-5 shadow-md bg-white dark:bg-gray-900 right-0 top-0">
               <Page />
             </div>
           </div>

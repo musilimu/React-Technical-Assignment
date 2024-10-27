@@ -18,7 +18,7 @@ const User: React.FC<IUser & {className?: string}> = ({ image, username, id, cla
     };
 
     return (
-        <img title={username} onClick={queryByUser} src={image} width={24} height={24} alt={`${username}'s profile picture`} className={`inline-block h-8 w-8 rounded-full ring-2 ring-white bg-gray-100 cursor-pointer ${className}`} />
+        <img title={username} onClick={queryByUser} src={image} width={24} height={24} alt={`${username}'s profile picture`} className={`inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-700 bg-gray-100 dark:bg-gray-800 cursor-pointer ${className}`} />
     )
 }
 

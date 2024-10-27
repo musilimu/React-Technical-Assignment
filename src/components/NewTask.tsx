@@ -25,7 +25,7 @@ const NewTask = () => {
 
     return (
         <div>
-            <div className="flex justify-between items-center my-5"><h2 className="text-gray-500 font-semibold text-xl">{t("Add New Task")}</h2> <button onClick={()=> setSearchParams({page:'chat'})} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-red-100'>{t("Close")} <XMarkIcon width={16} height={16} /></button></div>
+            <div className="flex justify-between items-center my-5"><h2 className="text-gray-500 dark:text-gray-400 font-semibold text-xl">{t("Add New Task")}</h2> <button onClick={()=> setSearchParams({page:'chat'})} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-red-100 dark:bg-red-200 dark:text-black'>{t("Close")} <XMarkIcon width={16} height={16} /></button></div>
             
             {todoMutation.isSuccess && <Alert message="Task saved successfuly" type="success" onClose={() => {
                 todoMutation.reset()
@@ -40,8 +40,8 @@ const NewTask = () => {
                     todo: task
                 })
             }}>
-                <SimpleMdeReact value={task} onChange={onChange} />
-                <button disabled={todoMutation.isPending} className='flex items-center justify-between gap-2  py-2 px-4 rounded-md bg-blue-400'>{todoMutation.isPending ? t("Saving ..."): t("Save task")} <PlusIcon width={16} height={16} /></button>
+                <SimpleMdeReact value={task} onChange={onChange} className="bg-gray-100 dark:bg-gray-800" />
+                <button disabled={todoMutation.isPending} className='flex items-center justify-between gap-2  py-2 px-4 rounded-md bg-blue-400 dark:bg-blue-700 mt-3'>{todoMutation.isPending ? t("Saving ..."): t("Save task")} <PlusIcon width={16} height={16} /></button>
             </form>
         </div>
     )

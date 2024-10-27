@@ -8,7 +8,7 @@ import { Tab, TabGroup, TabList } from "@headlessui/react"
 
 
 const SidebarControl: React.FC<{ icon: ReactNode, className?: string }> = ({ icon, className }) => {
-    return <div className={`flex items-center justify-center h-8 w-8 rounded-full bg-white text-gray-500 cursor-pointer ${className}`}>
+    return <div className={`flex items-center justify-center h-8 w-8 rounded-full bg-white dark:bg-gray-900 text-gray-500 cursor-pointer ${className}`}>
         {icon}
     </div>
 }
@@ -23,13 +23,13 @@ const Sidebar = () => {
     if (isPending) return <p title="loading">Loading</p>
     if (error) return <p>{error?.message}</p>
     return (
-        <aside className="sidebar flex flex-col border-r-2 gap-3 items-center justify-between h-screen fixed bg-white z-10">
+        <aside className="sidebar flex flex-col border-r-2 gap-3 items-center justify-between h-screen fixed bg-white dark:bg-gray-900 dark:border-gray-800 z-10">
             <div className="flex flex-col p-5 gap-4">
                 <button className="mb-12" title="profile">
                     <User {...data.users[0]} />
                 </button>
                 <TabGroup className="w-full">
-                    <TabList className="flex flex-col gap-4 bg-white rounded-xl w-full relative">
+                    <TabList className="flex flex-col gap-4 bg-white dark:bg-gray-900 rounded-xl w-full relative">
                         <Tab
                             key={'home'}
                             className="relative text-sm/6 font-semibold focus:outline-none data-[selected]:text-blue-600"
@@ -73,7 +73,7 @@ const Sidebar = () => {
             </div>
             <div className="flex flex-col p-5 gap-3">
                 {data.users.slice(0, 3).map(user => <User key={user.id} {...user} />)}
-                <SidebarControl icon={<PlusIcon width={24} height={24} />} className="ring-1 ring-gray-100" />
+                <SidebarControl icon={<PlusIcon width={24} height={24} />} className="ring-1 ring-gray-100 dark:ring-gray-800" />
             </div>
             <div className="mb-4">
                 <SidebarControl icon={<Cog6ToothIcon width={24} height={24} />} />

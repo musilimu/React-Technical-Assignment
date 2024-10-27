@@ -26,7 +26,7 @@ const TodoListTabs = () => {
 
     return (
         <TabGroup>
-            <div className='flex flex-wrap-reverse gap-4 bg-white justify-between p-4 rounded-xl'>
+            <div className='flex flex-wrap-reverse gap-4 bg-white dark:bg-gray-900  justify-between p-4 rounded-xl'>
                 <TabList className="flex gap-4 relative">
                     {categories.map((name) => (
                         <Tab
@@ -38,13 +38,13 @@ const TodoListTabs = () => {
                         </Tab>
                     ))}
                 </TabList>
-                <div className='flex text-gray-600 gap-4'>
-                    <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200'>
-                        <AdjustmentsHorizontalIcon width={16} height={16} className='text-gray-600' />
+                <div className='flex text-gray-600 dark:text-gray-400 gap-4'>
+                    <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200 dark:ring-gray-600'>
+                        <AdjustmentsHorizontalIcon width={16} height={16}  />
                         <span className='whitespace-nowrap'>{t("Filter & Sort")}</span>
                     </button>
-                    <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200' onClick={() => setSearchParams({ page: 'new-task' })}>
-                        <PlusIcon width={16} height={16} className='text-gray-600' />
+                    <button className='flex items-center justify-between gap-2 ring-1 py-1 px-2 rounded-md ring-gray-200 dark:ring-gray-600' onClick={() => setSearchParams({ page: 'new-task' })}>
+                        <PlusIcon width={16} height={16} />
                         <span className='whitespace-nowrap'>{t("New Task")}</span>
                     </button>
                 </div>

@@ -27,7 +27,7 @@ const Users: React.FC<{ showAll?: boolean, className?: string }> = ({ showAll, c
             <div className={`flex -space-x-2 overflow-hidden my-4 ${className}`}>
                 {data.users.slice(0, maxDisplay).map(user => <User key={user.id} {...user} />)}
                 {!showAll && overflowCount > 0 && (
-                    <div onClick={() => setFilters({ ...todoFilters, user: 0 })} className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-200 text-gray-600 ring-2 ring-white">
+                    <div onClick={() => setFilters({ ...todoFilters, user: 0 })} className="inline-flex items-center justify-center h-8 w-8 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300 ring-2 ring-white dark:ring-gray-700">
                         +{overflowCount}
                     </div>
                 )}
