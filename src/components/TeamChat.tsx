@@ -6,22 +6,22 @@ import { useTranslation } from "react-i18next"
 const TEAM_CHAT = [
     {
         user: "Alice",
-        message: "Hey everyone! Just a reminder that we have our stand-up in 15 minutes. What’s everyone working on?",
+        message: "Hey everyone! Just a reminder that we have our stand-up in 15 minutes. What's everyone working on?",
         timestamp: "09:00 AM"
     },
     {
         user: "Bob",
-        message: "I’m finishing up the feature for user authentication. Just need to push a few changes and submit the PR.",
+        message: "I'm finishing up the feature for user authentication. Just need to push a few changes and submit the PR.",
         timestamp: "09:00 AM"
     },
     {
         user: "Alice",
-        message: "Absolutely, I’ll take a look right after the stand-up. How’s the feedback been on your PRs, everyone?",
+        message: "Absolutely, I'll take a look right after the stand-up. How's the feedback been on your PRs, everyone?",
         timestamp: "09:00 AM"
     },
     {
         user: "Bob",
-        message: "I got a couple of comments on mine about the API endpoints. I’m working on addressing them now.",
+        message: "I got a couple of comments on mine about the API endpoints. I'm working on addressing them now.",
         timestamp: "09:00 AM"
     }]
 
