@@ -1,5 +1,6 @@
-import { Disclosure } from '@headlessui/react'
+import { Button, Disclosure, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { MagnifyingGlassIcon, MoonIcon, BellIcon } from '@heroicons/react/24/outline'
+import i18n, { languages } from '../../i18n'
 
 export default function Nav() {
     return (
@@ -38,6 +39,21 @@ export default function Nav() {
                             <span className="sr-only">Notifications</span>
                             <BellIcon width={24} height={24} />
                         </button>
+                        <Menu >
+                            {/* @ts-ignore */}
+                            <MenuButton>{languages[i18n.language]}</MenuButton>
+                            <MenuItems anchor="bottom" className="bg-white p-4">
+                                {Object.keys(languages).map(lang => <MenuItem
+                                    // @ts-ignore
+                                    onClick={() => i18n.changeLanguage(lang)}>
+                                    <Button className="block data-[focus]:bg-blue-100">
+                                        {/* @ts-ignore */}
+                                        {languages[lang]}
+                                    </Button>
+                                </MenuItem>)}
+
+                            </MenuItems>
+                        </Menu>
                     </div>
                 </div>
             </div>

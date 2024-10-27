@@ -7,6 +7,7 @@ import { getUser } from "../api/users"
 import User from "./User"
 import Alert from "./ui/Alert"
 import { useSearchParams } from "react-router-dom"
+import { useTranslation } from "react-i18next"
 
 
 const TodoItem: React.FC<ITodo> = ({ completed, todo, userId, id }) => {
@@ -27,6 +28,7 @@ const TodoItem: React.FC<ITodo> = ({ completed, todo, userId, id }) => {
             todoRef.current?.remove()
         }
     })
+    const { t } = useTranslation();
 
     if (isPending) return <p>Loading</p>
     if (error) return <p>{error?.message}</p>
@@ -37,7 +39,7 @@ const TodoItem: React.FC<ITodo> = ({ completed, todo, userId, id }) => {
             }} />}
             {userId % 2 === 1 && <img alt="Random image" src="https://random.imagecdn.app/v1/image?width=200&height=200" className="w-full object-cover rounded-xl" />}
             <div className="flex justify-between">
-                <span className={`${completed ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} p-1 w-max rounded-md`}>{completed ? 'Completed' : 'In progress'}</span>
+                <span className={`${completed ? 'bg-green-200 text-green-800' : 'bg-red-200 text-red-800'} p-1 w-max rounded-md`}>{completed ? t('Completed') : t('In progress')}</span>
 
                 <Popover>
                     <PopoverButton ref={closeBtnRef} className="block text-sm/6 font-semibold  focus:outline-none data-[active]:text-black data-[hover]:text-black data-[focus]:outline-1 data-[focus]:outline-white">
@@ -49,8 +51,8 @@ const TodoItem: React.FC<ITodo> = ({ completed, todo, userId, id }) => {
                         className="rounded-xl shadow-md  text-sm/6 transition duration-200 ease-in-out bg-white"
                     >
                         <div className="p-3 grid gap-3">
-                            <button onClick={() => deleteTodoMutation.mutateAsync(id)} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-red-50 hover:bg-red-100'><TrashIcon width={16} height={16} /> Delete</button>
-                            <button onClick={() => {setSearchParams({ page: 'update-task', id: id.toString() }); console.log(123)}} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-green-50 hover:bg-green-100'><PencilSquareIcon width={16} height={16}  /> Update</button>
+                            <button onClick={() => deleteTodoMutation.mutateAsync(id)} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-red-50 hover:bg-red-100'><TrashIcon width={16} height={16} />{t("Delete")}</button>
+                            <button onClick={() => {setSearchParams({ page: 'update-task', id: id.toString() }); console.log(123)}} className='flex items-center justify-between gap-2  py-1 px-2 rounded-md bg-green-50 hover:bg-green-100'><PencilSquareIcon width={16} height={16}  />{t("Update")}</button>
                         </div>
 
                     </PopoverPanel>

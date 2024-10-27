@@ -9,6 +9,7 @@ import TeamChat from "./components/TeamChat"
 import NewTask from "./components/NewTask"
 import { useSearchParams } from "react-router-dom"
 import UpdateTask from "./components/UpdateTask"
+import { Suspense } from "react"
 
 const queryClient = new QueryClient()
 
@@ -23,22 +24,24 @@ const Page = () => {
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex">
-        <Sidebar />
-        <div className="flex flex-1">
-          <div className="flex-1 ml-16 w-64">
-            <Nav />
-            <div className="bg-gray-100 p-12">
-              <Users />
-              <TodoListTabs />
-              <Paginations />
+      <Suspense fallback="loading">
+        <div className="flex">
+          <Sidebar />
+          <div className="flex flex-1">
+            <div className="flex-1 ml-16 w-64">
+              <Nav />
+              <div className="bg-gray-100 p-12">
+                <Users />
+                <TodoListTabs />
+                <Paginations />
+              </div>
+            </div>
+            <div className="max-w-[35%] sticky flex-1 p-5 shadow-md bg-white right-0 top-0">
+              <Page />
             </div>
           </div>
-          <div className="max-w-[35%] sticky flex-1 p-5 shadow-md bg-white right-0 top-0">
-            <Page />
-          </div>
         </div>
-      </div>
+      </Suspense>
     </QueryClientProvider>
   )
 }

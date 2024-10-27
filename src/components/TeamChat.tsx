@@ -1,6 +1,7 @@
 import { EllipsisVerticalIcon, MicrophoneIcon, } from "@heroicons/react/24/outline"
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid"
 import User from "./User"
+import { useTranslation } from "react-i18next"
 
 const TEAM_CHAT = [
     {
@@ -27,10 +28,11 @@ const TEAM_CHAT = [
 
 const TeamChat = () => {
     const currentUser = "Bob"
+    const { t } = useTranslation();
 
     return (
         <div className="relative">
-            <div className="flex justify-between items-center my-5"><p>Team Chat <span className="text-gray-400 ml-8">26 Oct 2024</span></p> <EllipsisVerticalIcon width={24} height={24} /></div>
+            <div className="flex justify-between items-center my-5"><p>{t("Team Chat")} <span className="text-gray-400 ml-8">26 Oct 2024</span></p> <EllipsisVerticalIcon width={24} height={24} /></div>
             <div className="grid gap-3">
                 {TEAM_CHAT.map(({ message, timestamp, user }) => (
                     <div>
@@ -44,7 +46,7 @@ const TeamChat = () => {
             <form className="flex flex-1 items-center my-4 bottom-0 right-8 w-full max-w-lg">
                 <input
                     type='text'
-                    placeholder='Your message...'
+                    placeholder={t("Your message...")}
                     className='p-2 rounded-sm border-none outline-none bg-gray-100 flex-1'
                 />
                 <div className="text-gray-500 flex gap-3 -ml-8">

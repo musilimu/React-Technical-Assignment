@@ -20,12 +20,14 @@ const Sidebar = () => {
         queryFn: () => getUsers(filters)
     })
 
-    if (isPending) return <p>Loading</p>
+    if (isPending) return <p title="loading">Loading</p>
     if (error) return <p>{error?.message}</p>
     return (
-        <div className="sidebar flex flex-col border-r-2 gap-3 items-center justify-between h-screen fixed bg-white z-10">
+        <aside className="sidebar flex flex-col border-r-2 gap-3 items-center justify-between h-screen fixed bg-white z-10">
             <div className="flex flex-col p-5 gap-4">
-                <User {...data.users[0]} className="mb-12" />
+                <button className="mb-12" title="profile">
+                    <User {...data.users[0]} />
+                </button>
                 <TabGroup className="w-full">
                     <TabList className="flex flex-col gap-4 bg-white rounded-xl w-full relative">
                         <Tab
@@ -77,7 +79,7 @@ const Sidebar = () => {
                 <SidebarControl icon={<Cog6ToothIcon width={24} height={24} />} />
                 <SidebarControl icon={<UserIcon width={24} height={24} />} />
             </div>
-        </div>
+        </aside>
     )
 }
 
