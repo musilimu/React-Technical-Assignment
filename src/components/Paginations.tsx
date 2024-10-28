@@ -28,7 +28,7 @@ const Paginations = () => {
     };
 
     return (
-        <div>
+        <div role='pagination'>
             <input type="hidden" ref={limitRef} defaultValue="10" />
             <button onClick={handleBackClick}>Back</button>
             <button onClick={handleNextClick}>Next</button>
